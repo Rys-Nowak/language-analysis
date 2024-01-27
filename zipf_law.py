@@ -9,6 +9,10 @@ import numpy as np
 OUT_PATH = "out"
 
 
+def MSE(data, actual):
+    return (sum([(value - actual)**2 for value in data]))/len(data)
+
+
 def create_zipf_dict(words: List[str]):
     zipf = {}
     for word in words:
@@ -20,11 +24,25 @@ def create_zipf_dict(words: List[str]):
     return dict(sorted(zipf.items(), key=lambda item: -item[1]))
 
 
-def plot(x, y, xlabel, ylabel, path):
+def plot_with_fit(X, Y, xlabel, ylabel, path):
+    constant = np.polyfit(X, Y, 0)
     plt.figure()
-    plt.ylim(0 - max(y) / 20, max(y) + max(y) / 20)
+    plt.ylim(0 - max(Y) / 20, max(Y) + max(Y) / 20)
     plt.grid()
-    plt.plot(x, y, '.')
+    plt.plot(X, Y, '.', label="Zipf's coefficient")
+    plt.plot(list(constant)*len(X), label=f"Constant = {constant[0]}, MSE = {MSE(Y, constant[0])}")
+    plt.legend()
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(path)
+    plt.savefig(os.path.join(OUT_PATH, path))
+
+
+def plot(X, Y, xlabel, ylabel, path):
+    plt.figure()
+    plt.ylim(0 - max(Y) / 20, max(Y) + max(Y) / 20)
+    plt.grid()
+    plt.plot(X, Y, '.')
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(path)
@@ -37,16 +55,16 @@ def plot_zipf(words: Dict[str, int], path):
 
     plot(ranks, frequency, "rank", "frequency",
          os.path.join(path, "zipf_all.jpg"))
-    plot(ranks, np.multiply(frequency, ranks), "rank", "rank*frequency",
-         os.path.join(path, "zipf_coef_all.jpg"))
+    plot_with_fit(ranks, np.multiply(frequency, ranks), "rank", "rank*frequency",
+                  os.path.join(path, "zipf_coef_all.jpg"))
     plot(ranks[:300], frequency[:300], "rank", "frequency",
          os.path.join(path, "zipf_300.jpg"))
-    plot(ranks[:300], np.multiply(frequency[:300], ranks[:300]), "rank",
-         "rank*frequency", os.path.join(path, "zipf_coef_300.jpg"))
+    plot_with_fit(ranks[:300], np.multiply(frequency[:300], ranks[:300]), "rank",
+                  "rank*frequency", os.path.join(path, "zipf_coef_300.jpg"))
     plot(ranks[:100], frequency[:100], "rank", "frequency",
          os.path.join(path, "zipf_100.jpg"))
-    plot(ranks[:100], np.multiply(frequency[:100], ranks[:100]), "rank",
-         "rank*frequency", os.path.join(path, "zipf_coef_100.jpg"))
+    plot_with_fit(ranks[:100], np.multiply(frequency[:100], ranks[:100]), "rank",
+                  "rank*frequency", os.path.join(path, "zipf_coef_100.jpg"))
 
 
 def read_voynich_words() -> List[str]:
