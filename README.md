@@ -16,7 +16,7 @@ Język czeski
 
 Język z manuskryptu
 
-#### Iloczyn częstotliwość występowania słów do ich rangi - wykres powinien być zbliżony do funckji stałej
+#### Iloczyn częstotliwość występowania słów do ich rangi - wykres powinien być zbliżony do funkcji stałej
 
 <img src="out/czech/zipf_coef_300.jpg">
 
