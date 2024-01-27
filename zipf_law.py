@@ -34,7 +34,7 @@ def plot_zipf(words: Dict[str, int], path):
 
     plot(ranks, values, "rank", "occurencies",
          os.path.join(path, "zipf_all.jpg"))
-    plot(ranks, values, "rank", "rank*occurencies",
+    plot(ranks, np.multiply(values, ranks), "rank", "rank*occurencies",
          os.path.join(path, "zipf_coef_all.jpg"))
     plot(ranks[:300], values[:300], "rank", "occurencies",
          os.path.join(path, "zipf_300.jpg"))
