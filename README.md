@@ -88,3 +88,39 @@ Analizę n-gramów zaczyna się od zliczania wystąpień sekwencji o ustalonej d
      (SCC8G, 4ODC8G, TC8G)            3
         (OE, SC8G, 4ODCCG)            3
 ```
+### Wniosek
+W języku czeskim konretne bigramy występują niemal o połowę rzadziej, niż w tekście Manuksryptu Wojnicza. Natomiast trigramy są liczniejsze w języku czeskim. Może to świadczyć o kilku cechach języka używanego do pisania Manuskryptu Wojnicza:
+- język ten może charakteryzować się prostszą strukturą słów, co oznacza, że słowa w tym języku mają tendencję do występowania w bardziej podstawowych formach, a zmiany formy są mniej rozbudowane
+- w języku Manuskryptu Wojnicza dominują krótsze struktury zdaniowe, co oznacza, że może zawierać bogatszą frazeologię
+- różnice w leksykonie i preferencje co do długości fraz czy zwrotów mogą wpływać także na stosunek między bigramami a trigramami, co obserwujemy w Manuskrypcie Wojnicza
+## Grafy dwudzielne
+#### 10 słów z największą liczbą krawędzi w grafie dwudzielnym w języku czeskim:
+```
+      count
+a       472
+se      284
+na      136
+v       127
+jeho     95
+je       92
+to       80
+s        75
+ale      73
+že       62
+```
+#### 10 słów z największą liczbą krawędzi w grafie dwudzielnym w Manuskrypcie Wojnicza:
+```
+       count
+8AM      545
+TC8G     272
+AM       258
+OE       237
+4ODAM    227
+TCG      225
+SC8G     220
+TOE      219
+8AR      201
+ODAM     191
+```
+### Wniosek
+Słowa w języku czeskim mają na ogół mniej połączeń w grafie dwudzielnym. W Manuskrypcie Wojnicza słowa mają więcej połączeń, a także istnieje dużo słów z bardzo dużą liczbą połączeń. Ponadto liczba połączeń nie spada tak szybko jak w języku czeskim. Przyczyną tego może być na przykład zróżnicowanie struktury składniowej języka. Wiele różnych kombinacji słów może prowadzić do różnych, ale poprawnych składniowo, struktur zdaniowych. Kolejną przyczyną może być też fakt, że słowa w języku w którym pisany był Manuskrypt Wojnicza są wieloznaczne, to znaczy, że istnieje więcej możliwości, jak słowa mogą być połączone semantycznie.
