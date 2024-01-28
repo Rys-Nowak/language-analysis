@@ -31,7 +31,7 @@ if __name__ == "__main__":
                                          columns=['count']).sort_values(by=['count'], ascending=False)
 
     print(df_czech)
-    print(count_czech)
+    print(count_czech.head(10))
 
     voynich_graph, voynich_count = create_bipartite_graph(read_voynich_words())
 
@@ -40,4 +40,4 @@ if __name__ == "__main__":
                                          columns=['count']).sort_values(by=['count'], ascending=False)
 
     print(df_voynich)
-    print(count_voynich)
+    print(count_voynich.head(10))
