@@ -15,16 +15,16 @@ def extract_ngrams(text, num) -> Dict:
 
 
 if __name__ == "__main__":
-    for i in range(2, 6):
+    for i in range(2, 4):
         print(f'\n{i}-grams:')
         czech_ngram_dict = extract_ngrams(read_czech_words(), i)
         czech_words_ngrams = pd.DataFrame(list(zip(czech_ngram_dict.keys(), czech_ngram_dict.values())),
                                           columns=['words', 'occurrences'])
         print('czech:')
-        print(czech_words_ngrams.head())
+        print(czech_words_ngrams.head(10))
 
         voynich_ngram_dict = extract_ngrams(read_voynich_words(), i)
         voynich_words_ngrams = pd.DataFrame(list(zip(voynich_ngram_dict.keys(), voynich_ngram_dict.values())),
                                             columns=['words', 'occurrences'])
         print('voynich:')
-        print(voynich_words_ngrams.head())
+        print(voynich_words_ngrams.head(10))
